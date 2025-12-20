@@ -48,9 +48,47 @@ console.log(safeComment);
 //Example_7 :
 const text = "JavaScript is very powerful language";
 
-const preview = text.slice(0, 10);  // استفاده از متد ()slice 
+let preview = text.slice(0, 10);  // استفاده از متد ()slice 
 
 
 
+// Method 2 => Number
 
+//Example_1 :
+function safeNumber(input) {
+  const num = Number(input);    // Number + isNaN استفاده از متد
+  return isNaN(num) ? null : num;
+}
+console.log(safeNumber("123"));
+
+//Example_2 :
+function extractPrice(text) {                   // parseInt استفاده از متد 
+  return parseInt(text.replace(/[^0-9]/g, ""));
+}
+
+console.log(extractPrice("قیمت: 45,000 تومان"));
+
+//Example_3 :
+function pageCount(items, perPage) {
+  return Math.floor(items / perPage);   // Math.floor استفاده از متد 
+}
+console.log(pageCount());
+
+//Example_4 :
+function roundPrice(price) {
+  return Number(price.toFixed());    // toFixed + Number استفاده از متد 
+}
+console.log(roundPrice(24.75));
+
+//Example_5 :
+function finalScore(score) {    // Math.min + Math.round استفاده از متد 
+  return Math.min(20, Math.round(score * 1.1));
+}
+console.log(finalScore(10));
+
+//Example_6 :
+function generateOTP() {    // Math.floor + Math.random استفاده از متد 
+  return Math.floor(100000 + Math.random() * 900000);
+}
+console.log(generateOTP());
 
