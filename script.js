@@ -17,8 +17,8 @@ let email_2 = "Alireza@gmail.com";
 if (email_2.includes("@")) {
   console.log("ایمیل معتبر است");  //استفاده از متد ()includes 
 }
-else{
-    console.log("ایمیل نامتعبر است");
+else {
+  console.log("ایمیل نامتعبر است");
 }
 
 //Example_3 :
@@ -92,3 +92,60 @@ function generateOTP() {    // Math.floor + Math.random استفاده از مت
 }
 console.log(generateOTP());
 
+
+
+//Method 3 => Object
+
+//Example_1 :
+const users_1 = {               // Object.values + filter استفاده از متد 
+  u1: { name: "Ali", age: 17 },
+  u2: { name: "Reza", age: 22 },
+  u3: { name: "Sara", age: 19 }
+};
+console.log(Object.values(users_1).filter(u => u.age >= 18));
+
+//Example_2 :
+const users_2 = {               // entries + map استفاده از متد 
+  u1: { name: "Ali", age: 17 },
+  u2: { name: "Reza", age: 22 },
+  u3: { name: "Sara", age: 19 }
+};
+console.log(Object.entries(users_2).map(([id, user]) => ({
+  id,
+  ...user
+})));
+
+//Example_3 :
+const users_3 = {               // hasOwnProperty استفاده از متد 
+  u1: { name: "Ali", age: 17 },
+  u2: { name: "Reza", age: 22 },
+  u3: { name: "Sara", age: 19 }
+};
+function hasAge(user_3) {
+  return user_3.hasOwnProperty("age");
+}
+console.log(hasAge(users_3));
+
+//Example_4 :
+const users_4 = {              // delete استفاده از متد 
+  u1: { name: "Ali", age: 17 },
+  u2: { name: "Reza", age: 22 },
+  u3: { name: "Sara", age: 19 }
+};
+function sanitizeUser(users_4) {
+  const copy = { ...users_4 };
+  delete copy.password;
+  return copy;
+}
+console.log(sanitizeUser(users_4));
+
+//Example_5 :
+const users_5 = {             // assign اسفتاده از متد 
+  u1: { name: "Ali", age: 17 },
+  u2: { name: "Reza", age: 22 },
+  u3: { name: "Sara", age: 19 }
+};
+let defaultSettings = { theme: "light", lang: "fa" };
+let userSettings = { theme: "dark" };
+
+console.log(Object.assign({}, defaultSettings, userSettings))
