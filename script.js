@@ -149,3 +149,78 @@ let defaultSettings = { theme: "light", lang: "fa" };
 let userSettings = { theme: "dark" };
 
 console.log(Object.assign({}, defaultSettings, userSettings))
+
+
+
+//Method 4 => List (Array)
+
+//Example_1 :
+const orders_1 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//      filter + map استفاده از متد
+console.log(orders_1
+  .filter(o => o.paid)
+  .map(o => o.price));
+
+//Example_2 :
+const orders_2 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//      reduce استفاده از متد
+let out = orders_2.reduce((sum, o) => {
+  return o.paid ? sum + o.price : sum;
+}, 0);
+console.log(out);
+
+//Example_3 :
+const orders_3 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//         find استفاده از متد 
+
+console.log(orders_3.find(o => o.id === 2));
+
+//Example_4 :
+const orders_4 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//       some استفاده از متد 
+console.log(orders_4.some(o => !o.paid));
+
+
+//Example_5 :
+const orders_5 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//       every استفاده از متد 
+console.log(orders_5.every(o => o.paid));
+
+//Example_6 :
+const orders_6 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//      sort استفاده از متد 
+console.log(orders_6.sort((a, b) => b.price - a.price));
+
+//Example_7 :
+const orders_7 = [
+  { id: 1, price: 120, paid: true },
+  { id: 2, price: 80, paid: false },
+  { id: 3, price: 200, paid: true }
+];
+//      splice استفاده از متد 
+const index = orders_7.findIndex(o => o.id === 2);
+console.log(orders_7.splice(index, 1));
